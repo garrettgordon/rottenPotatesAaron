@@ -8,12 +8,13 @@ class MoviesController < ApplicationController
 
   def index
     sort_type = params[:index]
+    @movies = Movie.all
     if not sort_type then
-      @movies = Movie.all
+
     elsif sort_type == :title then 
-      @movies = Movie.all.order(:title)
+      @movies.order(:title)
     elsif sort_type == :release_date then
-      @movies = Movie.all.order(:release_date)
+      @movies.order(:release_date)
     end
   end
 
