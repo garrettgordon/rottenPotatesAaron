@@ -4,10 +4,16 @@
 %table#movies
   %thead
     %tr
+    -if params[:index] == 'title'
+      %th.hilite= link_to 'Movie Title', movies_path(:index =>'title')
+    -else 
       %th= link_to 'Movie Title', movies_path(:index =>'title')
-      %th Rating
+    %th Rating
+    -if params[:index] == 'release_date'
+      %th.hilite= link_to 'Release Date', movies_path(:index =>'release_date')
+    -else 
       %th= link_to 'Release Date', movies_path(:index =>'release_date')
-      %th More Info
+    %th More Info
   %tbody
     - @movies.each do |movie|
       %tr
