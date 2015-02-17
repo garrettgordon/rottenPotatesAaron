@@ -19,23 +19,15 @@ class MoviesController < ApplicationController
 		@all_ratings = Movie.all_ratings
 		filters = []
 		sort_type = params[:index]
-		if not params[:ratings] then 
-			puts 'REDIRECT'
-			redirect_to movies_path(:ratings => session[:ratings])
+		if not params[:ratings] then
+			flash.keep
+			redirect_to movies_path(:ratings => session[:ratings], :index => params[:index])
 		else
 			params[:ratings].each do |rating, value| filters.append(rating) end 
 			if not sort_type then sort_type = session[:index] end 
-			@movies = Movie.where({rating: filters})
-
-			# if sort_type == 'title' then
-			# 	@movies = Movie.order(:title).all
-			# elsif sort_type == 'release_date' then
-			# 	@movies = Movie.order(:release_date).all
-			# end
-		session[:ratings] = params[:ratings]
-		puts 'set session'
-		puts session
-		session[:index] = sort_type
+			@movies = Movie.order(sort_type).where({rating: filters})
+			session[:ratings] = params[:ratings]
+			session[:index] = sort_type
 		end
 	end
 
