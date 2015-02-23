@@ -44,15 +44,16 @@ end
 Then /I should (not )?see movies with rating (.*)/ do |filter, ratings_list|
 	ratings = ratings_list.split(", ")
   if filter then
-    ratings.each {|rating| Then %{I should not see /^#{rating}$/ within "table#movies"}}
+    ratings.each {|rating| Then %{I should not see /^#{rating}^/ within "table#movies"}}
   else
-
     ratings.each {|rating| Then %{I should see /#{rating}/ within "table#movies"} }
   end
 end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  Then %{I should see movies with rating G, PG, PG-13, R}
+  #Then %{I should see movies with rating G, PG, PG-13, R}
+  puts page.all('table#movies tr').count
+  assert page.all('table#movies tr').count == Movie.count + 1
 end
 
