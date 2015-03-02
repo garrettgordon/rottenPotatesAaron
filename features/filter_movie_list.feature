@@ -29,9 +29,9 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 	# enter step to "submit" the search form on the homepage
 	Then I press ratings_submit
 	# enter step(s) to ensure t sunhat ratings_PG and R movies are visible
-	Then I should see movies with rating PG, R
+	Then I should see movies with rating PG-13, R
 	# enter step(s) to ensure that other movies are not visible
-	And I should not see movies with rating PG-13, G
+	And I should not see movies with rating PG, G
 
 Scenario: all ratings selected
 	# see assignment

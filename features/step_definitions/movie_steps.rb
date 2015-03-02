@@ -44,7 +44,7 @@ end
 Then /I should (not )?see movies with rating (.*)/ do |filter, ratings_list|
 	ratings = ratings_list.split(", ")
   if filter then
-    ratings.each {|rating| Then %{I should not see /^#{rating}^/ within "table#movies"}}
+    ratings.each {|rating| Then %{I should not see /^#{rating}$/ within "table#movies"}}
   else
     ratings.each {|rating| Then %{I should see /#{rating}/ within "table#movies"} }
   end
