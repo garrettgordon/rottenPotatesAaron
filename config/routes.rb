@@ -56,4 +56,10 @@ Rottenpotatoes::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'sour
   resources :movies
+
+
+  # Sample of named route:
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
+  match 'movies/:id/find_by_director' => 'movies#find_by_director', :as => :find_by_director
 end
