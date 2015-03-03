@@ -66,7 +66,6 @@ class MoviesController < ApplicationController
 			flash.keep
 			redirect_to movies_path
 		else 
-			puts 'STR LEN IS ' + @movie.director.length.to_s
 			@similar_director = @movie.directors
 		end
 	end
