@@ -60,3 +60,7 @@ end
 Then /^the director of "(.+)" should be "(.+)"$/ do |movie, director|
 	assert Movie.find_by_title(movie).director == director
 end
+
+Then(/^I press ratings_submit$/) do
+	click_button('ratings_submit')
+end

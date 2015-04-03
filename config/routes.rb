@@ -61,5 +61,5 @@ Rottenpotatoes::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-  match 'movies/:id/find_by_director' => 'movies#find_by_director', :as => :find_by_director
+  match 'upload' => 'upload#index', :as => :find_by_director
 end

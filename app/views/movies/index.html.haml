@@ -9,7 +9,7 @@
 
 %table#movies
   %thead
-    %tr/
+    %tr
     -if params[:index] == 'title'
       %th{:class => "hilite"}= link_to 'Movie Title', movies_path(:index =>'title'), :id => "title_header"
     -else 
