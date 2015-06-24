@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
-gem 'rails', '3.2.16'
+ruby '2.2.2'
+gem 'rails', '4.2.1'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'ruby-debug19'
+  gem 'byebug'
+  gem 'protected_attributes'
   gem'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
 end
