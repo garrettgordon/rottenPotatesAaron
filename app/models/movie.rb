@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+	has_many :theaters
 	ALL_RATINGS = ['G','PG','PG-13','R']
 	attr_accessible :title, :rating, :description, :release_date, :director
 	def self.all_ratings
