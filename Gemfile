@@ -6,13 +6,13 @@ gem 'rails', '4.2.1'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
-  gem 'protected_attributes'
   gem'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
 end
 
 
 group :production do
+
   gem 'pg'
 end
 
@@ -23,6 +23,7 @@ group :assets do
   gem 'coffee-rails'
 end
 
+gem 'protected_attributes'
 gem 'jquery-rails'
 gem 'haml'
 
